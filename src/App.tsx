@@ -10,18 +10,24 @@ function App() {
     let citiesList = ['Colombo', 'Matara', 'Galle', 'Kottawa', 'Hokandara'];
 
     const handleSelectItem = (item: String) => {
-      console.log(item);
-    }
+        console.log(item);
+    };
+
+    const [displayAlert, setDisplayAlert] = useState(false);
 
     return (
         <div className='App'>
-            <Alert>
-                Hello <span>World</span>
-            </Alert>
-            <Button onClick={() => console.log('clicked')}>
-                Click Here
-            </Button>
-            <ListGroup heading='Countries' items={countriesList} onSelectItem={handleSelectItem} />
+            {displayAlert && (
+                <Alert onClick={() => setDisplayAlert(false)} >
+                    Hello <span>World</span>
+                </Alert>
+            )}
+            <Button onClick={() => setDisplayAlert(true)}>Click Here</Button>
+            <ListGroup
+                heading='Countries'
+                items={countriesList}
+                onSelectItem={handleSelectItem}
+            />
         </div>
     );
 }

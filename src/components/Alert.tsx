@@ -1,15 +1,26 @@
-import { ReactNode } from "react"
+import { ReactNode } from 'react';
 
 interface Props {
-    children: ReactNode
+    children: ReactNode;
+    onClick: () => void;
 }
 
-function Alert({children}: Props) {
-  return (
-    <div className="alert alert-primary" role="alert">
-        {children}
-    </div>
-  )
+function Alert({ children, onClick }: Props) {
+    return (
+        <div
+            className='alert alert-warning alert-dismissible fade show'
+            role='alert'
+        >
+            {children}
+            <button
+                type='button'
+                className='btn-close'
+                data-bs-dismiss='alert'
+                aria-label='Close'
+                onClick={onClick}
+            ></button>
+        </div>
+    );
 }
 
-export default Alert
+export default Alert;
