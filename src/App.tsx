@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
 import './App.css';
 import ListGroup from './components/ListGroup';
 import Alert from './components/Alert';
 import Button from './components/Button';
+import Like from './components/Like';
 
 function App() {
     let countriesList = ['India', 'Sri Lanka', 'Japan', 'Australia', 'Canada'];
@@ -14,15 +14,22 @@ function App() {
     };
 
     const [displayAlert, setDisplayAlert] = useState(false);
+    const [liked, setLiked] = useState(false);
 
     return (
         <div className='App'>
             {displayAlert && (
-                <Alert onClick={() => setDisplayAlert(false)} >
+                <Alert onClick={() => setDisplayAlert(false)}>
                     Hello <span>World</span>
                 </Alert>
             )}
             <Button onClick={() => setDisplayAlert(true)}>Click Here</Button>
+            <Like
+                liked={liked}
+                onClick={() => {
+                    console.log('clicked'), setLiked(true);
+                }}
+            ></Like>
             <ListGroup
                 heading='Countries'
                 items={countriesList}
