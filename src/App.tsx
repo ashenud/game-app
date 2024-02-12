@@ -14,7 +14,6 @@ function App() {
     };
 
     const [displayAlert, setDisplayAlert] = useState(false);
-    const [liked, setLiked] = useState(false);
 
     return (
         <div className='App'>
@@ -25,9 +24,8 @@ function App() {
             )}
             <Button onClick={() => setDisplayAlert(true)}>Click Here</Button>
             <Like
-                liked={liked}
                 onClick={() => {
-                    console.log('clicked'), setLiked(true);
+                    console.log('clicked');
                 }}
             ></Like>
             <ListGroup
